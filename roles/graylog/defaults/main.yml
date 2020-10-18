@@ -1,0 +1,12 @@
+---
+graylog_password_secret: <GRAYLOG_SECRET_KEY> 
+graylog_password_hash: <GRAYLOG_ADMIN_PASSWORD_HASH>
+site_name: 'graylog'
+web_domain: '<WEB_DOMAIN>'
+admin_ip: '<ADMIN_IP>'
+custom_ssh: '<CUSTOM_SSH_PORT>'
+ufw_allowed_ports:
+  - '80'
+  - '443'
+
+
