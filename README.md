@@ -3,8 +3,8 @@
 
 ## Description
 
-The following Ansible playbook, will install Elasticsearch engine (for logs storage), MongoDB (to store Graylog's settings), Graylog server (for log's management, monitoring, analysis and alerting) and Nginx web server (as proxy server to access Graylog web interface on server's port 80) on Ubuntu 20.04 server.
-At the last step, three firewall rules (custom SSH port, http and https ports) will be setup to further protect Graylog server.
+The following Ansible playbook, will install Elasticsearch engine (for logs storage), MongoDB (to store Graylog's settings), Graylog server (for log's management, monitoring, analysis and alerting) and Nginx web server (as proxy server to access Graylog web interface on server's port 80) on Ubuntu 20.04 server.<br />
+At the last step, three firewall rules (custom SSH port, http and https ports) will be setup to further protect Graylog server.<br />
 A further security step, could be to password protect web root's folder (see Apache's htpasswd module).
 
 ## Components
@@ -59,7 +59,7 @@ f) Replace <TEMPORARY_ITEMS> with your own data:
 
 | Item | Instructions | Further info |
 | :---: | :---: | :---: |
-| `<SERVER_IP>` | replace <SERVER_IP> with your server's IP address |  |
+| `<SERVER_IP>` | replace it with your remote server's IP address |  |
 | `<SUDO_USER_NAME>` | replace it with sudo user's name |  |
 | `<SUDO_USER_PASSWORD>` | replace it with sudo user's password |  |
 | `<SSH_PRIVATE_KEY_NAME>` | replace it with your SSH private key name | For example: ~/.ssh/key_name |
@@ -71,7 +71,7 @@ then save and close the file
 g) Open the roles/graylog/defaults/main.yml file
 
 ```
-nano roles/sudo/defaults/main.yml
+nano roles/graylog/defaults/main.yml
 ```
 
 h) Replace <TEMPORARY_ITEMS> with your own data:
@@ -79,7 +79,7 @@ h) Replace <TEMPORARY_ITEMS> with your own data:
 | Item | Instructions | Further info |
 | :---: | :---: | :---: |
 | `<GRAYLOG_SECRET_KEY>` | replace it with the secret key created on your laptop | With the command "pwgen -N 1 -s 96" create a strong password on your laptop (if pwgen is not installed, install it with "apt-get install pwgen"). |
-| `<GRAYLOG_ADMIN_PASSWORD_HASH>` | replace it with the hash of Graylog admin user's password | First create on your laptop, a strong password. Then create a password hash using the command "echo -n <PASSWORD> | sha256sum" replacing <PASSWORD> with your password |
+| `<GRAYLOG_ADMIN_PASSWORD_HASH>` | replace it with the hash of Graylog admin user's password | First create on your laptop, a strong password. Then create a password hash using the command "echo -n <PASSWORD> \| sha256sum" replacing <PASSWORD> with your password |
 | `WEB_DOMAIN` | replace it with the web domain name used for Graylog's server | For example: graylog.domain.com |
 | `ADMIN_IP` | replace it with the outbound IP address of system administrator | |
 | `CUSTOM_SSH_PORT` | replace it with your custom SSH port number | |
